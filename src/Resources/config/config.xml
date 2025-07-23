@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Informations-Seite</title>
+        <title lang="de-DE">Informations-Seite</title>
+
+        <input-field type="text">
+            <name>freebeeRedirectPage</name>
+            <label>Info-Seite für Freebees</label>
+            <label lang="de-DE">Info-Seite für Freebees</label>
+            <defaultValue></defaultValue>
+            <description>Auf diese Seite wird weitergeleitet, wenn ein Freebee Artikel direkt aufgerufen wird.</description>
+            <description lang="de-DE">Auf diese Seite wird weitergeleitet, wenn ein Freebee Artikel direkt aufgerufen wird.</description>
+        </input-field>
+    </card>
+</config>

@@ -1,0 +1,27 @@
+{
+    "myfav-bonus-setup": {
+        "page-bonus-setup": {
+            "buttonAddBonus": "Bonus hinzufügen",
+            "columnFromCartPrice": "Preis ab",
+            "columnTitle": "Bezeichnung",
+            "columnSubtitle": "Untertitel",
+            "menuTitle": "Bonus-Einstellungen",
+            "title": "Bonus-Einstellungen"
+        },
+        "page-detail": {
+            "buttonCancel": "Abbrechen",
+            "buttonSave": "Speichern",
+            "cardTitle": "Details",
+            "labelActive": "Aktiviert",
+            "labelAutoActivation": "Automatisch aktivieren",
+            "labelFreebeeIconUrl": "Icon",
+            "labelFreebeeImageUrl": "Bild",
+            "labelFromCartPrice": "Preis ab",
+            "labelProductSingleSelect": "Artikel auswählen",
+            "labelTitle": "Bezeichnung",
+            "labelSortOrder": "Sortierung",
+            "labelSubtitle": "Untertitel",
+            "title": "Bonus einstellen"
+        }
+    }
+}

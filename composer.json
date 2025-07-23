@@ -1,0 +1,37 @@
+{
+    "name": "myfav/bonus",
+    "version": "1.0.0",
+    "description": "Bonus-Punkte und Checkout Booster",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mindfav Software",
+            "homepage": "https://www.mindfav.com"
+        }
+    ],
+    "require": {
+        "shopware/core": "^6.6",
+        "shopware/storefront": "^6.6",
+        "shopware/administration": "~6.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myfav\\Bonus\\": "src\/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Myfav\\Bonus\\MyfavBonus",
+        "plugin-icon": "plugin.png",
+        "shopware-min-version": "6.5",
+        "copyright": "(c) by Mindfav Software",
+        "label": {
+            "en-GB": "Bonus Points and Checkout Booster",
+            "de-DE": "Bonus Punkte System und Checkout Booster"
+        },
+        "description": {
+            "en-GB": "Adds collectable bonus points to the shop, as well as freebees and checkout boosters.",
+            "de-DE": "Fügt sammelbare Bonus-Punkte zum Shop hinzu, als auch Freebees und Checkout Booster-Funktionen."
+        }
+    }
+}

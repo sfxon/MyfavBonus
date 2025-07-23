@@ -1,0 +1,37 @@
+<sw-page class="myfavBonusSetup__index">
+    <template #smart-bar-header>
+        <h2>
+            {{ $tc('myfav-bonus-setup.page-bonus-setup.title') }}
+        </h2>
+    </template>
+
+    <template #smart-bar-actions>
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        <sw-button
+            :router-link="{ name: 'myfav.bonus.setup.create' }"
+            class="myfav-bonus-setup-index__add-bonus"
+            variant="primary"
+        >
+            {{ $tc('myfav-bonus-setup.page-bonus-setup.buttonAddBonus') }}
+        </sw-button>
+    </template>
+
+    <template #content>
+        <sw-entity-listing
+            class="myfav-bonus-setup-list__grid"
+
+            :is-loading="isLoading"
+            :columns="myfavBonusColumns"
+            :repository="myfavBonusRepository"
+            :items="myfavBonis"
+            :criteria-limit="limit"
+            :sort-by="currentSortBy"
+            :sort-direction="sortDirection"
+            :disable-data-fetching="true"
+            identifier="myfav-bonus-setup-list"
+            @update-records="updateTotal"
+            @page-change="onPageChange"
+            @column-sort="onSortColumn"
+        ></sw-entity-listing>
+    </template>
+</sw-page>

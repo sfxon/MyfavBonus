@@ -1,0 +1,140 @@
+<!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+{% block myfav_bonus_setup_detail %}
+<sw-page class="myfav-bonus-setup-detail">
+
+    <template #smart-bar-header>
+        <h2>{{ placeholder(myfavBonus, 'name', $tc('myfav-bonus-setup.page-detail.title')) }}</h2>
+    </template>
+
+     <template #smart-bar-actions>
+        <sw-button
+            :disabled="myfavBonusIsLoading"
+            @click="onCancel"
+        >
+            {{ $tc('myfav-bonus-setup.page-detail.buttonCancel') }}
+        </sw-button>
+
+        <sw-button-process
+            v-model="isSaveSuccessful"
+            class="myfav-bonus-setup-detail__save-action"
+            :is-loading="isLoading"
+            variant="primary"
+            @click.prevent="onSave"
+        >
+            {{ $tc('myfav-bonus-setup.page-detail.buttonSave') }}
+        </sw-button-process>
+
+    </template>
+
+    <template #content>
+        <sw-card-view>
+            <template v-if="myfavBonusIsLoading">
+                <sw-skeleton variant="detail-bold" />
+                <sw-skeleton />
+            </template>
+
+            <template v-else>
+
+                <sw-card
+                    position-identifier="myfav-bonus-setup-detail-basic-info"
+                    :title="$tc('myfav-bonus-setup.page-detail.cardTitle')"
+                >
+                    <sw-container
+                        class="myfav-bonus-setup-detail__container"
+                        columns="repeat(auto-fit, minmax(250px, 1fr))"
+                        gap="0 30px"
+                    >
+                        <div class="myfav-bonus-setup-detail__base-info-wrapper">
+                            <sw-text-field
+                                v-model:value="myfavBonus.title"
+                                type="text"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelTitle')"
+                                name="title"
+                                validation="required"
+                                required
+                                :error="myfavBonusTitleError"
+                            />
+
+                            <sw-text-field
+                                v-model:value="myfavBonus.subtitle"
+                                type="text"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelSubtitle')"
+                                name="subtitle"
+                                :error="myfavBonusSubtitleError"
+                            />
+
+                            <sw-switch-field 
+                                v-model:value="myfavBonus.active" 
+                                :label="$tc('myfav-bonus-setup.page-detail.labelActive')"
+                                name="active"
+                                :error="myfavBonusActiveError"
+                            ></sw-switch-field>
+
+                            <sw-number-field
+                                v-model:value="myfavBonus.fromCartPrice"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelFromCartPrice')"
+                                name="fromCartPrice"
+                                numberType="float"
+                                :step="null"
+                                :min="null"
+                                :max="null"
+                                :value="null"
+                                :digits="2"
+                                :fillDigits="false"
+                                :allowEmpty="false"
+                                :error="myfavBonusFromCartPriceError"
+                            ></sw-number-field>
+
+                            <sw-switch-field 
+                                v-model:value="myfavBonus.autoActivation" 
+                                :label="$tc('myfav-bonus-setup.page-detail.labelAutoActivation')"
+                                name="autoActivation"
+                                :error="myfavBonusAutoActivationError"
+                            ></sw-switch-field>
+
+                            <sw-entity-single-select
+                                v-model:value="myfavBonus.productId" 
+                                :label="$tc('myfav-bonus-setup.page-detail.labelProductSingleSelect')"
+                                entity="product"
+                                :error="myfavBonusProductIdError"
+                            ></sw-entity-single-select>
+
+                            <sw-number-field
+                                v-model:value="myfavBonus.sortOrder"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelSortOrder')"
+                                name="sortOrder"
+                                numberType="int"
+                                :step="null"
+                                :min="null"
+                                :max="null"
+                                :value="null"
+                                :digits="2"
+                                :fillDigits="false"
+                                :allowEmpty="false"
+                                :error="myfavBonusSortOrderError"
+                            ></sw-number-field>
+
+                            <sw-text-field
+                                v-model:value="myfavBonus.freebeeIconUrl"
+                                type="text"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelFreebeeIconUrl')"
+                                name="freebeeIconUrl"
+                                :error="myfavBonusFreebeeIconUrlError"
+                            />
+
+                            <sw-text-field
+                                v-model:value="myfavBonus.freebeeImageUrl"
+                                type="text"
+                                :label="$tc('myfav-bonus-setup.page-detail.labelFreebeeImageUrl')"
+                                name="freebeeImageUrl"
+                                :error="myfavBonusFreebeeImageUrlError"
+                            />
+                        </div>
+                    </sw-container>
+                </sw-card>
+            </template>
+        </sw-card-view>
+    </template>
+
+</sw-page>
+{% endblock %}

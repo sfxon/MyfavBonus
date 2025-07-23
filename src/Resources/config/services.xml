@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <!-- Entity -->
+        <service id="Myfav\Bonus\Core\Content\MyfavBonus\MyfavBonusDefinition">
+            <tag name="shopware.entity.definition" entity="myfav_bonus" />
+        </service>
+
+        <!-- Services -->
+        <service id="Myfav\Bonus\Services\MyfavBonusService">
+            <argument type="service" id="myfav_bonus.repository"/>
+        </service>
+
+        <!-- Storefront Subscriber -->
+        <service id="Myfav\Bonus\Storefront\Subscriber\CartChangedSubscriber">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+            <argument type="service" id="Myfav\Bonus\Services\MyfavBonusService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Myfav\Bonus\Storefront\Subscriber\PageLoadedSubscriber">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+            <argument type="service" id="Myfav\Bonus\Services\MyfavBonusService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Myfav\Bonus\Storefront\Subscriber\ProductPageLoadedSubscriber" public="true">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="router.default"/>
+        </service>
+
+        <service id="Myfav\Bonus\Storefront\Subscriber\ProductSearchCriteriaSubscriber" public="true">
+            <tag name="kernel.event_subscriber" />
+        </service>
+    </services>
+</container>

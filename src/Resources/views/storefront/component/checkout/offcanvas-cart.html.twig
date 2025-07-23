@@ -1,0 +1,101 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% block component_offcanvas_cart_actions_promotion %}
+    {{ parent() }}
+
+    {% if page.extensions.myfavBonus.boni.total > 0 %}
+        <div class="myfav-bonus-freebees-section">
+            <div class="myfav-bonus-no-freebes-chosen">
+                Noch keine Geschenke gewählt!
+            </div>
+            <div class="myfav-bonus-freebees-selection-container">
+                <div class="myfav-bonus-freebees-selection-title">Schalte deine Geschenke frei</div>
+
+                {% if page.extensions.myfavBonus.gapTillNextBonus !== false %}
+                    <div class="myfav-bonus-freebees-amount-to-next-freebee">Noch <b>{{ page.extensions.myfavBonus.gapTillNextBonus|currency }}</b> bis zum nächsten Geschenk</div>
+                {% endif %}
+
+                <div class="myfav-bonus-freebee-progress-bar-container">
+                    <div class="myfav-bonus-freebee-progress-bar">
+                        <div class="myfav-bonus-freebee-progress" style="width: {{ page.extensions.myfavBonus.bonusProgressInPercent }}%"></div>
+                    </div>
+                    {% for myfavBonus in page.extensions.myfavBonus.boni.elements %}
+                        <div class="myfav-bonus-freebee-marker{% if myfavBonus.extensions.myfavBonus.goalReached == true %} myfav-bonus-freebee-goal-reached{% endif %}" style="left: calc({{ myfavBonus.extensions.myfavBonus.progressInPercent }}% - 34px);">
+                            <img src="{{ myfavBonus.freebeeIconUrl }}" />
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="myfav-bonus-freebee-item-selection">
+                    {% for myfavBonus in page.extensions.myfavBonus.boni.elements %}
+                        <div class="myfav-bonus-freebee-item{% if myfavBonus.extensions.myfavBonus.goalReached == true %} myfav-bonus-freebee-item-goal-reached{% endif %}">
+                            <div class="myfav-bonus-freebee-badge">Gratis</div>
+                            <div class="myfav-bonus-freebee-info">
+                                <div class="myfav-bonus-freebee-image"><img 
+                                    {% if myfavBonus.freebeeImageUrl !== NULL && myfavBonus.freebeeImageUrl !== '' %}
+                                        src="{{ myfavBonus.freebeeImageUrl }}"
+                                    {% elseif myfavBonus.product.cover.media.url %}
+                                        src="{{ myfavBonus.product.cover.media.url }}"
+                                    {% endif %}
+                                    class="img-fluid"
+                                /></div>
+                                <div class="myfav-bonus-freebee-title">
+                                    <div class="myfav-bonus-freebee-main-title">{{ myfavBonus.title }} (ab {{ myfavBonus.fromCartPrice|currency }})</div>
+                                    <div class="myfav-bonus-freebee-sub-title">{{ myfavBonus.subtitle }}</div>
+                                </div>
+                                <div class="myfav-bonus-freebee-activation-switch">
+                                    <div class="form-check form-switch">
+                                        <input
+                                            class="form-check-input myfav-bonus-free-activation-switch-input"
+                                            type="checkbox"
+                                            role="switch"
+                                            id="myfavBonusFreeActivationSwitchInput"
+                                            {% if myfavBonus.extensions.myfavBonus.goalReached != true || myfavBonus.autoActivation === true %}disabled="true"{% endif %}
+                                            {% if myfavBonus.extensions.myfavBonus.goalReached == true && myfavBonus.autoActivation === true %}checked="checked"{% endif %}
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                    {# {{ dump(page.extensions.myfavBonus) }} #}
+
+                    {#
+                    <div class="myfav-bonus-freebee-item">
+                        <div class="myfav-bonus-freebee-badge">Gratis</div>
+                        <div class="myfav-bonus-freebee-info">
+                            <div class="myfav-bonus-freebee-image"><img src="http://lachs-henke.local:88/media/e9/b1/a2/1715784161/rotwildlachs_scheibens74tkmbxbssuz.jpg?1715784161" /></div>
+                            <div class="myfav-bonus-freebee-title">
+                                <div class="myfav-bonus-freebee-main-title">Artikelname</div>
+                                <div class="myfav-bonus-freebee-sub-title">Untertitel</div>
+                            </div>
+                            <div class="myfav-bonus-freebee-activation-switch">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input myfav-bonus-free-activation-switch-input" type="checkbox" role="switch" id="myfavBonusFreeActivationSwitchInput">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="myfav-bonus-freebee-item">
+                        <div class="myfav-bonus-freebee-badge">Gratis</div>
+                        <div class="myfav-bonus-freebee-info">
+                            <div class="myfav-bonus-freebee-image"><img src="http://lachs-henke.local:88/media/e9/b1/a2/1715784161/rotwildlachs_scheibens74tkmbxbssuz.jpg?1715784161" /></div>
+                            <div class="myfav-bonus-freebee-title">
+                                <div class="myfav-bonus-freebee-main-title">Artikelname</div>
+                                <div class="myfav-bonus-freebee-sub-title">Untertitel</div>
+                            </div>
+                            <div class="myfav-bonus-freebee-activation-switch">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input myfav-bonus-free-activation-switch-input" type="checkbox" role="switch" id="myfavBonusFreeActivationSwitchInput">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    #}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

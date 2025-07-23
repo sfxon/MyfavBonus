@@ -1,0 +1,135 @@
+.myfav-bonus-freebees-section {
+    .myfav-bonus-no-freebes-chosen {
+        background-color: #d8dbf5;
+        border: 2px dashed #212969;
+        color: #212969;
+        font-weight: bold;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .myfav-bonus-freebees-selection-title {
+        color: #212969;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 12px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .myfav-bonus-freebees-amount-to-next-freebee {
+        background-color: #d8dbf5;
+        border: 1px solid #212969;
+        color: #212969;
+        padding: 12px;
+        text-align: center;
+    }
+
+    /* Progress bar */
+    .myfav-bonus-freebee-progress-bar-container {
+        position: relative;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+        .myfav-bonus-freebee-progress-bar {
+            background-color: #F2F2F2;
+            height: 6px;
+            width: 100%;
+
+            .myfav-bonus-freebee-progress {
+                background-color: #212969;
+                height: 6px;
+                width: 30%;
+            }
+        }
+
+        .myfav-bonus-freebee-marker {
+            background-color: #FFF;
+            border: 2px solid #E2E2E2;
+            border-radius: 18px;
+            height: 34px;
+            padding: 2px 7px;
+            position: absolute;
+            top: -14px;
+            width: 34px;
+
+            img {
+                height:16px;
+                width: 16px;
+            }
+        }
+
+        .myfav-bonus-freebee-marker.myfav-bonus-freebee-goal-reached {
+            border-color: #212969;
+        }
+    }
+
+    /* Freebee Auflistung */
+    .myfav-bonus-freebee-item-selection {
+        .myfav-bonus-freebee-item {
+            margin-bottom: 2rem;
+            position: relative;
+
+            .myfav-bonus-freebee-badge {
+                background-color: #F2F2F2;
+                color: #FFF;
+                display: inline-block;
+                font-size: .65rem;
+                font-weight: bold;
+                left: -21px;
+                margin-top: 21px;
+                padding: 2px 12px;
+                position: absolute;
+                text-align: center;
+                text-transform: uppercase;
+                transform: rotate(-90deg);
+            }
+
+            .myfav-bonus-freebee-info {
+                display: flex;
+                padding-left: 2rem;
+
+                .myfav-bonus-freebee-image {
+                    height: auto;
+                    width: 32px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .myfav-bonus-freebee-title {
+                    margin-left: 12px;
+                }
+
+                .myfav-bonus-freebee-sub-title {
+                    color: #AAA;
+                }
+
+                .myfav-bonus-freebee-activation-switch {
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+
+                .myfav-bonus-free-activation-switch-input {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .myfav-bonus-freebee-item-goal-reached {
+        .myfav-bonus-freebee-main-title {
+            color: #212969;
+        }
+        
+        .myfav-bonus-freebee-activation-switch input {
+            border-color: #212969;
+        }
+
+        .myfav-bonus-freebee-badge {
+            background-color: #212969!important;
+        }
+    }
+}
