@@ -76,6 +76,8 @@ class MyfavBonusService
             $bonusProgressInPercent = 100 / $maxBonusPrice * $cartTotalPrice;
         }
 
+        $goalsReached = 0;
+
         // Position der Freebees auf dem Fortschrittsbalken berechnen.
         if($boni->getTotal() > 0 && $maxBonusPrice !== false && $maxBonusPrice > 0) {
             foreach($boni as $bonus) {
@@ -87,6 +89,7 @@ class MyfavBonusService
 
                 if($bonus->getFromCartPrice() <= $cartTotalPrice) {
                     $goalReached = true;
+                    $goalsReached++;
                 }
 
                 $bonus->addExtension('myfavBonus', new ArrayStruct([
@@ -102,6 +105,7 @@ class MyfavBonusService
             'bonusProgressInPercent' => $bonusProgressInPercent,
             'cartTotalPrice' => $cartTotalPrice,
             'gapTillNextBonus' => $gapTillNextBonus,
+            'goalsReached' => $goalsReached,
             'maxBonusPrice' => $maxBonusPrice,
             'reachedMaximumBonus' => $reachedMaximumBonus
         ];

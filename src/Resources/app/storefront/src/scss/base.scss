@@ -54,8 +54,10 @@
             width: 34px;
 
             img {
-                height:16px;
-                width: 16px;
+                height: 24px;
+                width: 24px;
+                margin-top: -6px;
+                margin-left: -3px;
             }
         }
 
@@ -71,7 +73,7 @@
             position: relative;
 
             .myfav-bonus-freebee-badge {
-                background-color: #F2F2F2;
+                background-color: #CCC;
                 color: #FFF;
                 display: inline-block;
                 font-size: .65rem;
@@ -91,16 +93,18 @@
 
                 .myfav-bonus-freebee-image {
                     height: auto;
-                    width: 32px;
+                    width: 48px;
 
                     img {
-                        height: 100%;
+                        height: auto;
                         width: 100%;
                     }
                 }
 
                 .myfav-bonus-freebee-title {
+                    font-size: .9rem;
                     margin-left: 12px;
+                    padding-right: 18px;
                 }
 
                 .myfav-bonus-freebee-sub-title {

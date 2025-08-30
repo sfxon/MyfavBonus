@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/component/line-item/element/quantity.html.twig' %}
+
+{% block component_line_item_quantity_select_wrapper %}
+    {% if lineItem.payload.customFields.myfav_is_freebee === true %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -5,9 +5,16 @@
 
     {% if page.extensions.myfavBonus.boni.total > 0 %}
         <div class="myfav-bonus-freebees-section">
-            <div class="myfav-bonus-no-freebes-chosen">
-                Noch keine Geschenke gewählt!
-            </div>
+            {% if page.extensions.myfavBonus.goalsReached === 0 %}
+                <div class="myfav-bonus-no-freebes-chosen">
+                    Noch keine Geschenke gewählt!
+                </div>
+            {% else %}
+                <div class="myfav-bonus-no-freebes-chosen">
+                    Du erhälst <b style="text-decoration: underline;">{{ page.extensions.myfavBonus.goalsReached }} {% if page.extensions.myfavBonus.goalsReached === 1 %}Geschenk{% else %}Geschenke{% endif %}</b> mit deiner Bestellung.
+                </div>
+            {% endif %}
+
             <div class="myfav-bonus-freebees-selection-container">
                 <div class="myfav-bonus-freebees-selection-title">Schalte deine Geschenke frei</div>
 
